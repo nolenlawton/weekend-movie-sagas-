@@ -29,9 +29,15 @@ function* fetchAllMovies() {
 }
 
 function* addMovie(action) {
+    console.log(action.payload.genre)
     try {
-        yield axios.post('/api/movie', action.payload);
+        const movies = yield axios.post('/api/movie', action.payload.movie);
+        const genre = yield axios.post('/api/genre', action.payload.genre);
+
+
         yield put({ type: 'SET_MOVIES', payload: movies.data });
+        yield put({ type: 'SET_GENRES', payload: genre.data });
+
 
     } catch {
         console.log('get all error');
@@ -72,7 +78,7 @@ const storeInstance = createStore(
         genres,
     }),
     // Add sagaMiddleware to our store
-    applyMiddleware(sagaMiddleware, logger),
+    applyMiddleware(sagaMiddleware),
 );
 
 // Pass rootSaga into our sagaMiddleware

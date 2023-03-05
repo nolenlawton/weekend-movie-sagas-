@@ -4,13 +4,15 @@ import { useDispatch } from "react-redux"
 
 function AddMovie () {
     const [movie, setMovie] = useState({})
+    const [genre, setGenre] = useState('')
     const history = useHistory()
     const dispatch = useDispatch()
 
     const add = () => {
+        console.log(genre)
         dispatch({
             type: 'ADD_MOVIE',
-            payload: movie
+            payload: {movie: movie, genre: genre}
         })
         history.goBack()
     }
@@ -26,7 +28,7 @@ function AddMovie () {
                 <input onChange={(event) => setMovie({...movie, title: event.target.value})} type='text' placeholder='title' />
                 <input onChange={(event) => setMovie({...movie, poster: event.target.value})} type='text' placeholder='image url' />
                 <input onChange={(event) => setMovie({...movie, description: event.target.value})} type='text' placeholder='description' />
-                <select onChange={(event) => setMovie({...movie, genre: event.target.value})}>
+                <select onChange={(event) => setGenre(event.target.value)}>
                     <option value="">select</option>
                     <option value="Adventure">Adventure</option>
                     <option value="Animated">Animated</option>
