@@ -19,7 +19,7 @@ function MovieList() {
             <section className="movies">
                 {movies.map(movie => {
                     return (
-                        <Link key={movie.id} to={{pathname: `/details/${movie.id}`, state: movie}}>
+                        <Link key={movie.id} to={{pathname: `/${movie.id}`, state: movie}}>
                             
                             <h3>{movie.title}</h3>
                             <img src={movie.poster} alt={movie.title}/>

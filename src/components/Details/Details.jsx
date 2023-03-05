@@ -1,25 +1,25 @@
-import { useLocation } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
+import { useParams } from "react-router-dom"
 
 function Details () {
     const history = useHistory()
-    const location = useLocation()
     const dispatch = useDispatch()
+
     const genres = useSelector(store => store.genres)
-    const movie = location.state
+    const movie = useSelector(store => store.movie)
+    const {id} = useParams()
 
     const handleBack = () => {
         history.goBack()
     }
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_GENRES', payload: movie.id});
+        dispatch({ type: 'FETCH_GENRES', payload: id});
+        dispatch({ type: 'FETCH_MOVIE', payload: id});
     }, []);
-
-    console.log(`${movie.title} has the genres: `, genres)
 
     return(
         <>
