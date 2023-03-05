@@ -15,11 +15,16 @@ function MovieList() {
     return (
         <main>
 
-            <h1>MovieList</h1>
+            <div className='header'>
+                <h2>MovieList</h2>
+                <Link to='/addMovie'>
+                    <h3 className='add'>Add Movie</h3>
+                </Link> 
+            </div> 
             <section className="movies">
                 {movies.map(movie => {
                     return (
-                        <Link key={movie.id} to={{pathname: `/${movie.id}`, state: movie}}>
+                        <Link  className='movieItem' key={movie.id} to={{pathname: `/details/${movie.id}`, state: movie}}>
                             
                             <h3>{movie.title}</h3>
                             <img src={movie.poster} alt={movie.title}/>

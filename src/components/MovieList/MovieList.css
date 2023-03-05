@@ -1,4 +1,47 @@
 .movies {
-    display : flex;
-    flex-wrap: wrap;
+    display : grid;
+    grid-template-columns: auto auto auto;
+    background-color: rgb(194, 54, 54); 
+    padding-top: 16px;
+}
+
+.add {
+    background-color: antiquewhite;
+    width: 128px;
+    padding: 16px;
+    margin: 16px;
+    border-radius: 16px;
+    position:fixed;
+    top: 32px;
+    right: 32px;
+    border: 0px;
+    font-size: 16px;
+    text-decoration: solid;
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+.header {
+    border-bottom: 4px solid #222;
+    margin-top: 16px;
+}
+
+.description {
+    width: 800px;
+    background-color:antiquewhite;
+    margin: auto;
+    padding: 16px;
+    border-radius: 16px;
+}
+
+.back {
+    background-color: antiquewhite;
+    width: 128px;
+    padding: 16px;
+    margin: 16px;
+    border-radius: 16px;
+    border: 0px;
 }

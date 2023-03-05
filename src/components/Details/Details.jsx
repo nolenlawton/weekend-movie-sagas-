@@ -23,12 +23,13 @@ function Details () {
 
     return(
         <>
-            <h2>Details</h2>
-            <h3>{movie.title}</h3>
-            <img src={movie.poster} alt={movie.title}/>
+            <div className="movieItem">
+                <h2>{movie.title}</h2>
+                <img src={movie.poster} alt={movie.title}/>
+            </div>
             <h4>{genres}</h4>
-            <h4>{movie.description}</h4>
-            <button onClick={handleBack}>Back To List</button>
+            <h4 className="description">{movie.description}</h4>
+            <button className="back" onClick={handleBack}>Back To List</button>
         </>
     )
 }

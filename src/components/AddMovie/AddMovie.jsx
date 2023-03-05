@@ -22,6 +22,7 @@ function AddMovie () {
     return(
         <>
         <h1>Add Movie</h1>
+            <div className="entireForm">
             <div className='form'>
                 <input onChange={(event) => setMovie({...movie, title: event.target.value})} type='text' placeholder='title' />
                 <input onChange={(event) => setMovie({...movie, poster: event.target.value})} type='text' placeholder='image url' />
@@ -42,9 +43,11 @@ function AddMovie () {
                     <option value="12">Space-Opera</option>
                     <option value="13">Superhero</option>``
                 </select>
-
-                <button onClick={cancel}>Cancel</button>
-                <button onClick={add}>Add</button>
+            </div>
+            <div className="buttons">
+                <button className="cancel" onClick={cancel}>Cancel</button>
+                <button className="addMovie" onClick={add}>Add</button>
+            </div>
             </div>
         </>
     )

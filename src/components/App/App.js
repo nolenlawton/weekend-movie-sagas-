@@ -9,15 +9,13 @@ function App() {
     <div className="App">
       <Router> 
       <h1>The Movies Saga!</h1> 
-      <Link to='/addMovie'>
-        <h3>Add Movie</h3>
-      </Link>      
-        <Route path="/" exact>
+      
+        <Route path="/" exact> 
           <MovieList />
         </Route>
         
         {/* Details page */}
-        <Route path="/:id" exact>
+        <Route path="/details/:id" exact>
           <Details />
         </Route>
 
